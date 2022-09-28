@@ -2,12 +2,13 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const UsersForm = () => {
+const UsersForm = ({getUsers}) => {
     const {register, handleSubmit} =useForm();
     const submit =(data)=>{
         //funcion para submit con handle
          console.log(data);
          axios.post('https://users-crud1.herokuapp.com/users/', data)
+         .then(()=>getUsers())
          .catch (e => console.log(e));
     }
 

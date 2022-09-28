@@ -43,3 +43,7 @@ button.submit {
   margin-right: 10px;
   background: greenyellow;
 }
+
+.users-list {
+  list-style: none;
+}
