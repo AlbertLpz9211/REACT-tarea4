@@ -1,6 +1,8 @@
 import React from "react";
 
-const UsersList = ({ users }) => {
+
+const UsersList = ({ users, selectedUser }) => {
+
   return (
     <div>
       <h1>Users List</h1>
@@ -12,6 +14,8 @@ const UsersList = ({ users }) => {
             </h2>
             <div>{user.email}</div>
             <div>{user.birthday}</div>
+            <br />
+            <button onClick={()=>selectedUser(user)}>Editar</button>
           </li>
         ))}
       </ul>

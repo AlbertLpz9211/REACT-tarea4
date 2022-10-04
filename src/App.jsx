@@ -5,7 +5,11 @@ import UsersForm from "./components/UsersForm";
 import UsersList from "./components/UsersList";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]); //estado para enviar como props hadia los componentes
+  const [userSelectec, setUserSelected] =useState(null);
+
+  
+  
 
   useEffect(() => {
     axios
@@ -18,11 +22,15 @@ function App() {
       .get("https://users-crud1.herokuapp.com/users/")
       .then((resp) => setUsers(resp.data));
   };
-  console.log(users);
+  const selectedUser =(user) => {
+    setUserSelected(user);
+    alert("se selecciono un usuario")
+  };
+
   return (
     <div className="App">
-      <UsersForm getUsers={getUsers}/>
-      <UsersList users={users} />
+      <UsersForm getUsers={getUsers} seUser={userSelectec}/>
+      <UsersList users={users} selectedUser={selectedUser} />
     </div>
   );
 }

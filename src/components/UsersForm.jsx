@@ -1,17 +1,26 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-const UsersForm = ({getUsers}) => {
-    const {register, handleSubmit} =useForm();
+const UsersForm = ({getUsers, selUser}) => {
+
+    const {register, handleSubmit, reset} =useForm();
+    const defaultValuesForm ={};
+
+    useEffect(() => {
+        if (selUser) {
+            alert("se selecciono una pelicula")
+        }
+      }, [selUser]);
+
     const submit =(data)=>{
-        //funcion para submit con handle
-         console.log(data);
          axios.post('https://users-crud1.herokuapp.com/users/', data)
          .then(()=>getUsers())
          .catch (e => console.log(e));
     }
 
+        
+    
     return (
         <div>
             <form onSubmit={handleSubmit(submit)}>
@@ -26,7 +35,7 @@ const UsersForm = ({getUsers}) => {
                 </div>
                 <div className="input-container">
                     <label htmlFor="password">password</label>
-                    <input type="text" id="password" {...register("password")}/>
+                    <input type="password" id="password" {...register("password")}/>
                 </div>
                 <div className="input-container">
                     <label htmlFor="email">email</label>
