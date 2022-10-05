@@ -9,7 +9,7 @@ function App() {
   const [userSelectec, setUserSelected] =useState(null);
 
   
-  
+  //CLASE MINUNTO 1:51:53
 
   useEffect(() => {
     axios
@@ -24,12 +24,12 @@ function App() {
   };
   const selectedUser =(user) => {
     setUserSelected(user);
-    alert("se selecciono un usuario")
   };
-
+  // const deselectedUser=()=> 
+  
   return (
     <div className="App">
-      <UsersForm getUsers={getUsers} seUser={userSelectec}/>
+      <UsersForm getUsers={getUsers} selUser={userSelectec}/>
       <UsersList users={users} selectedUser={selectedUser} />
     </div>
   );

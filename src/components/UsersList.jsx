@@ -15,7 +15,8 @@ const UsersList = ({ users, selectedUser }) => {
             <div>{user.email}</div>
             <div>{user.birthday}</div>
             <br />
-            <button onClick={()=>selectedUser(user)}>Editar</button>
+            <button className="edited" onClick={()=>selectedUser(user)}>Editar</button>
+            <button className="deleted">Eliminar</button>
           </li>
         ))}
       </ul>

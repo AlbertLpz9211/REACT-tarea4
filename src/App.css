@@ -33,17 +33,33 @@ form{
 
 button {
   padding: 10px;
-  background: #e6e0e0;
+  margin: 2px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
 }
+
 
 button.submit {
   padding: 10px;
   margin-right: 10px;
-  background: greenyellow;
+  background: rgb(130, 240, 135);
+}
+button.clean {
+  padding: 10px;
+  margin-right: 10px;
+  background: rgb(130, 240, 240);
 }
 
+button.edited{
+  padding: 10px;
+  margin-right: 10px;
+  background: rgb(249, 216, 84);
+}
+button.deleted{
+  padding: 10px;
+  margin-right: 10px;
+  background: rgb(255, 61, 47);
+}
 .users-list {
   list-style: none;
 }
