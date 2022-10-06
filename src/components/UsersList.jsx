@@ -1,12 +1,13 @@
 import axios from "axios";
 import React from "react";
 
-
 const UsersList = ({ users, selectedUser, getUsers }) => {
-const deleteUser =(id)=>{
-  axios. delete(`https://users-crud1.herokuapp.com/users/${id}`)
-  .then(()=> getUsers());
-}
+  const deleteUser = (id) => {
+    axios
+      .delete(`https://users-crud1.herokuapp.com/users/${id}`)
+      .then(() => getUsers());
+    alert("usuario eliminado");
+  };
 
   return (
     <div>
@@ -20,8 +21,12 @@ const deleteUser =(id)=>{
             <div>{user.email}</div>
             <div>{user.birthday}</div>
             <br />
-            <button className="edited" onClick={()=>selectedUser(user)}>Editar</button>
-            <button className="deleted" onClick={()=> deleteUser(user.id)}>Eliminar</button>
+            <button className="edited" onClick={() => selectedUser(user)}>
+              Editar
+            </button>
+            <button className="deleted" onClick={() => deleteUser(user.id)}>
+              Eliminar
+            </button>
           </li>
         ))}
       </ul>

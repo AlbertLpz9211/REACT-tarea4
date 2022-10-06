@@ -20,8 +20,9 @@ const UsersForm = ({ getUsers, selUser }) => {
           userRegister
         )
         .then(() => getUsers());
+      alert("uasuario actualizado");
     } else {
-      alert("se esta registrando");
+      alert("Usuario registrado");
       axios
         .post("https://users-crud1.herokuapp.com/users/", userRegister)
         .then(() => getUsers())
