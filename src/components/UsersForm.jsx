@@ -4,24 +4,22 @@ import { useForm } from "react-hook-form";
 
 const UsersForm = ({ getUsers, selUser }) => {
   const { register, handleSubmit, reset } = useForm();
-  const defaultValuesForm = {
-    first_name: "",
-    last_name: "",
-    password: "",
-    email: "",
-  };
 
   useEffect(() => {
     if (selUser) {
-      if (selUser) {
-        reset(selUser);
-      }
+      reset(selUser);
     }
   }, [selUser]);
 
   const submit = (userRegister) => {
+    console.log(selUser);
     if (selUser) {
-      alert("Actualizando");
+      axios
+        .put(
+          `https://users-crud1.herokuapp.com/users/${userRegister.id}/`,
+          userRegister
+        )
+        .then(() => getUsers());
     } else {
       alert("se esta registrando");
       axios
@@ -31,9 +29,14 @@ const UsersForm = ({ getUsers, selUser }) => {
     }
     clearForm();
   };
-const clearForm =() =>{
-    reset(defaultValuesForm);
-}
+  const clearForm = () => {
+    reset({
+      first_name: "",
+      last_name: "",
+      password: "",
+      email: "",
+    });
+  };
 
   return (
     <div>
@@ -64,8 +67,10 @@ const clearForm =() =>{
           <label htmlFor="birthday">birthday</label>
           <input type="date" id="birthday" {...register("birthday")} />
         </div>
-        <button className="submit">Submit</button>
-        <button className="clean" onClick={clearForm}>Limpiar</button>
+        <button className="submit">Enviar</button>
+        <button className="clean" onClick={clearForm}>
+          Limpiar
+        </button>
       </form>
     </div>
   );
