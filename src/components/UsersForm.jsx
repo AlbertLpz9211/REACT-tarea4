@@ -41,7 +41,7 @@ const UsersForm = ({ getUsers, selUser }) => {
   return (
     <div>
       <form onSubmit={handleSubmit(submit)}>
-        <h1>Users Form</h1>
+        <h1>Formulario de Registro</h1>
         <div className="input-container">
           <label htmlFor="first_name">first name</label>
           <input type="text" id="first_name" {...register("first_name")} />

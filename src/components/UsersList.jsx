@@ -10,7 +10,7 @@ const deleteUser =(id)=>{
 
   return (
     <div>
-      <h1>Users List</h1>
+      <h1>Lista de usuarios</h1>
       <ul className="users-list">
         {users.map((user) => (
           <li key={user.id}>
